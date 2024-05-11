@@ -25,8 +25,8 @@ def index():
         info_dict = ydl.extract_info(url, download=True)
         old_file_path = ydl.prepare_filename(info_dict)
 
-    file_path = re.sub(r'\.\w+$', '.wav', old_file_path)
-    extension = "wav"
+    file_path = re.sub(r'\.\w+$', '.mp3', old_file_path)
+    extension = "mp3"
     stream = ffmpeg.input(old_file_path)
     stream = ffmpeg.output(stream, file_path)
     ffmpeg.run(stream, quiet=True)
